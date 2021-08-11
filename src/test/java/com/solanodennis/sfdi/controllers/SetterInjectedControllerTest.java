@@ -1,10 +1,8 @@
 package com.solanodennis.sfdi.controllers;
 
-import com.solanodennis.sfdi.services.GreetingsServiceImpl;
+import com.solanodennis.sfdi.services.SetterInjectedGreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SetterInjectedControllerTest {
 
@@ -13,7 +11,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller = new SetterInjectedController();
-        controller.setGreetingsService(new GreetingsServiceImpl());
+        controller.setGreetingsService(new SetterInjectedGreetingServiceImpl());
     }
 
     @Test
