@@ -15,14 +15,15 @@ public class SfDiApplication {
 
     	// Spring framework is in charge of creating beans that are annotated with typical annotations such as @Component,
 		// @Controller, @Service, @Repository, among others. This is called inversion of control.
-		// The spring framework instantiates those objects and store them in th application context. Thus, every time
+		// The spring framework instantiates those objects and stores them in the application context. Thus, every time
 		// one of them is requested, spring framework will provide it via dependency injection.
 		// Beans names are the same as classes, but they start with lower case.
 
         ApplicationContext aplApplicationContext = SpringApplication.run(SfDiApplication.class, args);
+
+        System.out.println("----------- Primary Bean");
         MyController myController = (MyController) aplApplicationContext.getBean("myController");
-        String greeting = myController.sayHello();
-        System.out.println(greeting);
+        System.out.println(myController.sayHello());
 
         System.out.println("----------- Property");
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController) aplApplicationContext.getBean("propertyInjectedController");
