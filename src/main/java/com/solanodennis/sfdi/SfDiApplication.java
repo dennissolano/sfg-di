@@ -1,6 +1,9 @@
 package com.solanodennis.sfdi;
 
+import com.solanodennis.sfdi.controllers.ConstructorInjectedController;
 import com.solanodennis.sfdi.controllers.MyController;
+import com.solanodennis.sfdi.controllers.PropertyInjectedController;
+import com.solanodennis.sfdi.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,5 +23,17 @@ public class SfDiApplication {
         MyController myController = (MyController) aplApplicationContext.getBean("myController");
         String greeting = myController.sayHello();
         System.out.println(greeting);
+
+        System.out.println("----------- Property");
+        PropertyInjectedController propertyInjectedController = (PropertyInjectedController) aplApplicationContext.getBean("propertyInjectedController");
+        System.out.println(propertyInjectedController.getGreeting());
+
+        System.out.println("----------- Setter");
+        SetterInjectedController setterInjectedController = (SetterInjectedController) aplApplicationContext.getBean("setterInjectedController");
+        System.out.println(setterInjectedController.getGreeting());
+
+        System.out.println("----------- Constructor");
+        ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) aplApplicationContext.getBean("constructorInjectedController");
+        System.out.println(constructorInjectedController.getGreeting());
     }
 }
