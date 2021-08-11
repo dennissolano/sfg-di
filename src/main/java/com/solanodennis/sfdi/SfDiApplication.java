@@ -1,9 +1,6 @@
 package com.solanodennis.sfdi;
 
-import com.solanodennis.sfdi.controllers.ConstructorInjectedController;
-import com.solanodennis.sfdi.controllers.MyController;
-import com.solanodennis.sfdi.controllers.PropertyInjectedController;
-import com.solanodennis.sfdi.controllers.SetterInjectedController;
+import com.solanodennis.sfdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,6 +17,10 @@ public class SfDiApplication {
 		// Beans names are the same as classes, but they start with lower case.
 
         ApplicationContext aplApplicationContext = SpringApplication.run(SfDiApplication.class, args);
+
+        System.out.println("----------- Profile Specific Bean");
+        I18nController i18nController = (I18nController) aplApplicationContext.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
 
         System.out.println("----------- Primary Bean");
         MyController myController = (MyController) aplApplicationContext.getBean("myController");
